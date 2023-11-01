@@ -6,3 +6,6 @@ I'm not exactly sure why, but the second digit of the day for the date, is appea
 
 I used chatgpt to bugfix an issue I was having with displaying the time, I wrote day.js rather than dayjs for one of the lines of code, and it made the text not show because of the error.
 
+https://dsullivan42.github.io/Work-Day-Scheduler/
+
+![1](https://github.com/dsullivan42/Work-Day-Scheduler/assets/97996876/fdfeefbc-0799-4546-862a-14d49ab5db85)
