@@ -6,11 +6,11 @@
 $(document).ready(function () {
 
 //creating variables for the current day and time
-var currentDay = $("#currentDay");
+var currentDay = document.querySelector("#currentDay");
 
-var today = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+var today = dayjs().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
-currentDay.text(today);
+currentDay.textContent = today;
 
 // this code assigns the saveBtn class to the save button, with a click event, which stores the time and the text in local storage
 $(".saveBtn").on("click", function() {
@@ -21,10 +21,10 @@ $(".saveBtn").on("click", function() {
 
 // this code gets the current number of hours
 function hourTracker() {
-    var currentHour = moment().hour();
+    var currentHour = dayjs().hour();
 
     // this code loops over the time blocks
-    $(".time-block").each(function() {
+    $(".hour-row").each(function() {
         var blockHour = parseInt($(this).attr("id").split("-")[1]);
 
         // this code checks the time and adds the appropriate class
@@ -48,5 +48,18 @@ function hourTracker() {
 // this code calls the hourTracker function
 hourTracker();
 
+// this code loads the saved data from local storage
+function loadSchedule() {
+    $(".hour-row").each(function() {
+        var id = $(this).attr("id");
+        var schedule = localStorage.getItem(id);
+
+        if (schedule !== null) {
+            $(this).children(".description").val(schedule);
+        }
+    });
+}
+// this code calls the loadSchedule function
+loadSchedule();
   });
   
